@@ -11,9 +11,9 @@
     <%= javascript_importmap_tags %>
   </head>
 
-  <body>
+  <body class="bg-blue-500">
+    <%= render "layouts/header" %>
     <main class="container mx-auto mt-28 px-5 flex bg-green-500">
-      <%= render "layouts/header" %>
       <%= yield %>
 
       <%#= render "admin/layouts/footer" %>
