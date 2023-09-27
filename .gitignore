@@ -21,11 +21,39 @@
 # Ignore uploaded files in development.
 /storage/*
 !/storage/.keep
-/tmp/storage/*
-!/tmp/storage/
-!/tmp/storage/.keep
 
 /public/assets
+.byebug_history
 
 # Ignore master key for decrypting credentials and more.
 /config/master.key
+/config/credentials/development.key
+/config/credentials/staging.key
+/config/credentials/production.key
+/config/credentials/test.key
+
+/public/packs
+/public/packs-test
+/node_modules
+/yarn-error.log
+yarn-debug.log*
+.yarn-integrity
+
+.vscode/*
+.DS_Store
+
+# Redis
+dump.rdb
+
+# ctags
+tags
+coverage
+
+# Ignore Rubymine env files
+.idea/*
+.idea
+
+.cache
+
+/app/assets/builds/*
+!/app/assets/builds/.keep
