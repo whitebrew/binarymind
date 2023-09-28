@@ -11,17 +11,13 @@
     <%= javascript_importmap_tags %>
   </head>
 
-  <body class="bg-blue-500">
-    <%= render "layouts/header" %>
-    <main class="container mx-auto mt-28 px-5 flex bg-green-500">
-      <%= yield %>
-
-      <%#= render "admin/layouts/footer" %>
-    </main>
-
-    <!-- <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+  <body>
+    <main class="min-h-screen mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <%= render "layouts/header" %>
       <div class="mx-auto max-w-3xl">
+        <%= yield %>
       </div>
-    </div> -->
+      <%= render "layouts/footer" %>
+    </main>
   </body>
 </html>
