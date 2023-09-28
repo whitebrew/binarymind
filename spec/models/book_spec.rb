@@ -1,5 +1,10 @@
-require 'rails_helper'
+# frozen_string_literal: true
+
+require "rails_helper"
 
 RSpec.describe Book, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  let!(:book) { create(:book) }
+
+  it { expect(book.title).to be_present }
+  it { expect(book.author).to be_present }
 end
