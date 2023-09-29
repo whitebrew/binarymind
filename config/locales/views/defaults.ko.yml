@@ -1,0 +1,7 @@
+ko:
+  create:
+    success: "생성하였습니다."
+  update:
+    success: "수정하였습니다."
+  destroy:
+    success: "삭제하였습니다."
