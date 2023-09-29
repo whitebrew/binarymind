@@ -54,7 +54,6 @@ jobs:
         env:
             RAILS_ENV: test
         run: |
-          cp config/database.github.yml config/database.yml
           bin/rails db:create
           bin/rails db:schema:load
 
