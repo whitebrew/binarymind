@@ -21,7 +21,7 @@ class Book < ApplicationRecord
   extend FriendlyId
   friendly_id :title, use: :slugged
 
-  enum :state, %i[draft published].index_with(&:to_s), default: :draft
+  enum :state, %i[draft unpublished published].index_with(&:to_s), default: :draft
 
   validates :title, presence: true, uniqueness: true
   validates :author, :translator, :state, :in_a_nutshell, :description, :published_on,

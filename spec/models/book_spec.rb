@@ -66,8 +66,8 @@ RSpec.describe Book, type: :model do
       expect(book).to be_invalid
     end
 
-    it "should be draft or published" do
-      expect(Book.states).to include("draft", "published")
+    it "should be draft, unpublished or published" do
+      expect(Book.states).to include("draft", "unpublished", "published")
     end
 
     it "sets default value - draft" do
