@@ -1,0 +1,26 @@
+ko:
+  activerecord:
+    attributes:
+      book:
+        table: "책"
+
+        title: "제목"
+        author: "저자"
+        translator: "역자"
+        slug: "슬러그"
+        published_at: "출간일"
+        first_published_at: "최초출간일"
+        state: "상태"
+        states:
+          published: "출간"
+          unpublished: "미출간"
+          draft: "초고"
+        in_a_nutshell: "한 문장 표현"
+        description: "설명"
+    errors:
+      models:
+        book:
+          attributes:
+            title:
+              blank: "제목을 입력해 주세요."
+              # too_long: "제목은 %{count}자 이하여야 합니다."
