@@ -23,7 +23,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_28_074703) do
     t.text "in_a_nutshell", default: "", null: false
     t.text "description", default: "", null: false
     t.date "published_on", null: false
-    t.date "first_published_on", null: false
+    t.date "first_published_on"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["slug"], name: "index_books_on_slug", unique: true

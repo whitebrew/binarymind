@@ -12,7 +12,7 @@ class CreateBooks < ActiveRecord::Migration[7.0]
       t.text :description, null: false, default: ""
 
       t.date :published_on, null: false
-      t.date :first_published_on, null: false
+      t.date :first_published_on
 
       t.timestamps
     end
