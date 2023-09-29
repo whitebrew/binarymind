@@ -2,7 +2,7 @@
   <div class="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:grid lg:max-w-7xl lg:grid-cols-2 lg:gap-x-8 lg:px-8">
     <!-- Product details -->
     <div class="lg:max-w-lg lg:self-end">
-      <nav aria-label="Breadcrumb">
+      <!-- <nav aria-label="Breadcrumb">
         <ol role="list" class="flex items-center space-x-2">
           <li>
             <div class="flex items-center text-sm">
@@ -18,7 +18,7 @@
             </div>
           </li>
         </ol>
-      </nav>
+      </nav> -->
 
       <div class="mt-4">
         <h1 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
@@ -67,11 +67,9 @@
     </div> -->
 
     <div class="mt-10 lg:col-start-1 lg:row-start-2 lg:max-w-lg lg:self-start">
-      <section aria-labelledby="options-heading">
+      <section aria-labelledby="actions">
         <div class="mt-10">
-          <button type="submit" class="flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-600 px-8 py-3 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-offset-gray-50">
-            읽기
-          </button>
+          <%= link_to t(".button.read"), "", class: "flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-600 px-8 py-3 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-offset-gray-50" %>
         </div>
       </section>
     </div>
