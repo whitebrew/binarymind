@@ -24,6 +24,8 @@ class Book < ApplicationRecord
   enum :state, %i[draft published].index_with(&:to_s), default: :draft
 
   validates :title, presence: true, uniqueness: true
+  validates :author, :translator, :state, :in_a_nutshell, :description, :published_on,
+    presence: true
 
   def should_generate_new_friendly_id?
     slug.blank? || title_changed?
