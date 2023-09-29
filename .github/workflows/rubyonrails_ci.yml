@@ -1,0 +1,79 @@
+name: "Ruby on Rails CI"
+on:
+  pull_request:
+    branches: [ "main" ]
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:latest
+        ports:
+          - "5432:5432"
+        env:
+          # POSTGRES_DB: kholdem_server_test
+          # POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: postgres
+        # set health checks to wait until postgres has started
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+    env:
+      RAILS_ENV: test
+      # DATABASE_URL: "postgres://postgres:postgres@localhost:5432/kholdem_server_test"
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      # Add or replace dependency steps here
+      - name: Install Ruby and gems
+        uses: ruby/setup-ruby@55283cc23133118229fd3f97f9336ee23a179fcf # v1.146.0
+        with:
+          ruby-version: 3.2.1
+          bundler-cache: true
+
+      ### setup-ruby does this(Use cache, Install dependencies) for us
+      # Use cache
+      # - uses: actions/cache@v2
+      #   with:
+      #     path: vendor/bundle
+      #     key: ${{ runner.os }}-gems-${{ hashFiles('**/Gemfile.lock') }}
+      #     restore-keys: |
+      #       ${{ runner.os }}-gems-
+
+      # Install dependencies
+      # - name: Install dependencies
+      #   run: |
+      #     bundle config path vendor/bundle
+      #     bundle install --jobs 4 --retry 3
+
+      # Add or replace database setup steps here
+      - name: Setup test database
+        env:
+            RAILS_ENV: test
+        run: |
+          bin/rails db:create
+          bin/rails db:schema:load
+
+      # - name: Setup chromedriver
+      #   uses: nanasess/setup-chromedriver@master
+
+      # Add or replace any other lints here
+      - name: Security audit dependencies
+        run: bundle exec bundle-audit check --update
+
+      - name: Security audit application code
+        run: bundle exec brakeman -q -w2
+
+      - name: Lint Ruby files
+        run: bundle exec rubocop --parallel
+
+      # Add or replace test runners here
+      - name: Run tests
+        env:
+          RAILS_ENV: test
+          RAILS_MASTER_KEY: ${{ secrets.RAILS_TEST_KEY }}
+        run: |
+          bundle exec rspec

@@ -68,6 +68,8 @@ group :development, :test do
 
   gem "factory_bot_rails"
   gem "database_cleaner"
+  gem "brakeman", require: false
+  gem "bundler-audit", require: false
 end
 
 group :development do
@@ -90,5 +92,4 @@ group :test do
   # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
   gem "capybara"
   gem "selenium-webdriver"
-
 end
